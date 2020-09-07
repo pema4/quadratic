@@ -5,27 +5,39 @@ OBJ:=obj
 BIN:=bin
 DOCS:=docs
 
-all: executable tests docs
+all: makeOutputDirs $(BIN)/executable $(BIN)/tests $(DOCS)/index.html
 
-runTests: tests
-	$(BIN)/tests
+docs:
 
-runExecutable: executable
-	$(BIN)/executable
+runTests: $(BIN)/tests
+	$?
 
-executable: $(OBJ)/main.o $(OBJ)/quadratic.o $(OBJ)/utils.o
-	$(CC) $(CFLAGS) $(OBJ)/main.o $(OBJ)/quadratic.o $(OBJ)/utils.o -o $(BIN)/executable -lm
+runExecutable: $(BIN)/executable
+	$?
 
-tests: $(OBJ)/tests.o $(OBJ)/quadratic.o $(OBJ)/utils.o
-	$(CC) $(CFLAGS) $(OBJ)/tests.o $(OBJ)/quadratic.o $(OBJ)/utils.o -o $(BIN)/tests -lm
+$(BIN)/executable: $(OBJ)/main.o $(OBJ)/quadratic.o $(OBJ)/utils.o
+	$(CC) -o $@ $^ -lm
 
-$(OBJ)/%.o: $(SRC)/%.c makeOutputDirs
-	$(CC) $(CFLAGS) -c $< -o $@
+$(BIN)/tests: $(OBJ)/tests.o $(OBJ)/quadratic.o $(OBJ)/utils.o
+	$(CC) -o $@ $^ -lm
 
-.PHONY: makeOutputDirs clean
+$(OBJ)/main.o: $(SRC)/main.c $(SRC)/quadratic.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 
-docs: $(SRC)/*
+$(OBJ)/tests.o: $(SRC)/tests.c $(SRC)/testlib.h $(SRC)/utils.h $(SRC)/quadratic.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ)/quadratic.o: $(SRC)/quadratic.c $(SRC)/quadratic.h $(SRC)/utils.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ)/utils.o: $(SRC)/utils.c $(SRC)/utils.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(DOCS)/index.html: $(wildcard $(SRC)/*)
+	echo  $(ALL_SRC)
 	doxygen Doxyfile
+
+.PHONY: clean makeOutputDirs
 
 makeOutputDirs:
 	mkdir -p obj bin
