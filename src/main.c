@@ -16,13 +16,13 @@ int main()
     solutions_count_t count = solve(a, b, c, solution);
     switch (count)
     {
-        case NO_SOLUTIONS:
+        case NO_SOLUTION:
             puts("Equation has no solutions");
             break;
         case ONE_SOLUTION:
             printf("Equation has only one solution: %lf\n", solution[0]);
             break;
-        case TWO_SOLUTION:
+        case TWO_SOLUTIONS:
             printf("Equation has two solutions: %lf %lf\n", solution[0], solution[1]);
             break;
         case INF_SOLUTIONS:

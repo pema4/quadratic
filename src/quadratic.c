@@ -9,7 +9,7 @@
 solutions_count_t solve_constant(double a, double *solutions)
 {
 	if (!close_to_zero(a))
-		return NO_SOLUTIONS;
+		return NO_SOLUTION;
 
 	solutions[0] = -a;
 	return INF_SOLUTIONS;
@@ -33,7 +33,7 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
 
 	double d = b * b - 4 * a * c;
 	if (d < 0)
-		return NO_SOLUTIONS;
+		return NO_SOLUTION;
 	else if (close_to_zero(d))
 	{
 		solutions[0] = -b / (2 * a);
@@ -44,7 +44,7 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
 		double root_of_d = sqrt(d);
 		solutions[0] = (-b + root_of_d) / (2 * a);
 		solutions[1] = (-b - root_of_d) / (2 * a);
-		return TWO_SOLUTION;
+		return TWO_SOLUTIONS;
 	}
 }
 

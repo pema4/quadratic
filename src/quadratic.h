@@ -1,8 +1,8 @@
 typedef enum solutions_count_t
 {
-    NO_SOLUTIONS,
+    NO_SOLUTION,
     ONE_SOLUTION,
-    TWO_SOLUTION,
+    TWO_SOLUTIONS,
     INF_SOLUTIONS
 } solutions_count_t;
 
