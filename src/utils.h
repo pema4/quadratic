@@ -5,6 +5,9 @@
 /** @brief \f$\epsilon\f$ used in comparisons.
  * 
  *  \f$\epsilon\f$ used in functions ::close_to and ::close_to_zero.
+ * 
+ *  @sa ::close_to
+ *  @sa ::close_to_zero
  */ 
 #define EPSILON 1e-7;
 
@@ -12,10 +15,10 @@
  * 
  *  Numbers \f$a, b\f$ are considered equal if \f$|a - b| < \epsilon\f$.
  * 
- *  @param[in] a the first number.
- *  @param[in] b the second number.
+ *  @param[in] a The first number.
+ *  @param[in] b The second number.
  * 
- *  @return non-zero value if the numbers can be considered equal, otherwise 0
+ *  @return Non-zero value if the numbers can be considered equal, otherwise 0
  */
 int close_to(double a, double b);
 
@@ -23,8 +26,8 @@ int close_to(double a, double b);
  *  
  *  Number \f$a\f$ is considered zero if \f$|a| < \epsilon\f$.
  * 
- *  @param[in] a the number to be compared.
+ *  @param [in] a The number to be compared.
  * 
- *  @return non-zero value if the number is close to zero, otherwise 0.
+ *  @return Non-zero value if the number is close to zero, otherwise 0.
  */
 int close_to_zero(double a);
