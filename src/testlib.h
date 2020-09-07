@@ -11,25 +11,29 @@
  *  If the condition evaluates to false, the test case is reported as failed
  *  and corresponding message is printed to stderr.
  * 
- *  @param condition the condition that must be true.
+ *  @param condition The condition that must be true.
+ * 
+ *  @sa ::TEST
  */ 
-#define ASSERT(condition)    \
-    do                       \
-        if (!(condition)) {    \
+#define ASSERT(condition)                                                 \
+    do                                                                    \
+        if (!(condition))                                                 \
+        {                                                                 \
             fprintf(stderr, #condition " FAILED on line %d\n", __LINE__); \
-            goto FAILED;   \
-        }                                                   \
+            goto FAILED;                                                  \
+        }                                                                 \
     while (0)
 
 /** @brief Marks the beginning of a test case.
  * 
  *  The TEST macro is used to define a test case. A test case 
- *  starts with TEST(name) and ends with ::ENDTEST macros.
- *  Test case is a regular C function with some conditions wrapped in ASSERT macros.
+ *  starts with ::TEST(name) and ends with ::ENDTEST macros.
+ *  Test case is a regular C function with some conditions wrapped in ::ASSERT(condition) macros.
  *  When tests are executed, the test case is marked as failed, if any of
  *  these condition evaluate to false. Otherwise, the test case is marked as passed.
  * 
  *  @param name Name of the test function. Also used in the output of tests.
+ * 
  *  @sa ::ENDTEST
  */ 
 #define TEST(name) \
@@ -39,7 +43,6 @@
 
 /** @brief Marks the end of a test case.
  * 
- *  @param name Name of the test function. Also used in the output of tests.
  *  @sa ::TEST
  */ 
 #define ENDTEST                                         \
@@ -49,4 +52,3 @@
             fprintf(stderr, "FAILED: %s\n", TEST_NAME); \
             return;                                     \
     }
-

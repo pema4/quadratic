@@ -4,6 +4,7 @@
 
 #include "stdio.h"
 
+// Test equations like 0 = 0 and 1 = 0.
 TEST(simple_equality)
     double sol[2] = {0};
     solutions_count_t count = NO_SOLUTION;
@@ -15,6 +16,7 @@ TEST(simple_equality)
     ASSERT(INF_SOLUTIONS == count);
 ENDTEST
 
+// Test equations like x + 1 = 0 and x = 1.
 TEST(linear)
     double sol[2] = {0};
     solutions_count_t count = NO_SOLUTION;
@@ -28,6 +30,7 @@ TEST(linear)
     ASSERT(-1 == sol[0]);
 ENDTEST
 
+// Test equations like x^2 + 4x + 3 = 0.
 TEST(quadratic)
     double sol[2] = {0};
     solutions_count_t count = NO_SOLUTION;

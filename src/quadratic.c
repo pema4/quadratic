@@ -5,7 +5,16 @@
 #include "math.h"
 #include "assert.h"
 
-// a = 0
+/** @brief Simple equation solver.
+ * 
+ * 	Used to solve \f$a = 0\f$ equation.
+ * 
+ * 	@param [in] a The constant in the equation.
+ * 	@param [out] solutions The array to store solutions in.
+ *                         Size must be at least 1.
+ * 
+ * 	@return A count of solutions (none, one or infinity)
+ */ 
 solutions_count_t solve_constant(double a, double *solutions)
 {
 	if (!close_to_zero(a))
@@ -15,9 +24,20 @@ solutions_count_t solve_constant(double a, double *solutions)
 	return INF_SOLUTIONS;
 }
 
-// a * x + b = 0
+/** @brief Linear equation solver.
+ * 
+ * 	Used to solve \f$ax + b = 0\f$ equation.
+ * 
+ *  @param [in] a The coefficient of x in the equation.
+ * 	@param [in] b The constant in the equation.
+ * 	@param [out] solutions The array to store solutions in.
+ *                         Size must be at least 1.
+ * 
+ * 	@return A count of solutions (none, one or infinity)
+ */ 
 solutions_count_t solve_linear(double a, double b, double *solutions)
 {
+	// Check if this equation is 'simple' (without any variables).
 	if (close_to_zero(a))
 		return solve_constant(b, solutions);
 
@@ -25,12 +45,26 @@ solutions_count_t solve_linear(double a, double b, double *solutions)
 	return ONE_SOLUTION;
 }
 
-// a * x^2 + b * x + c = 0
+/** @brief Solves a quadratic equation with given coefficients.
+ *  
+ *  This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
+ *  It is just like ::solve, but without any assertions.
+ * 
+ *  @param [in] a The coefficient of x^2 in the equation.
+ *  @param [in] b The coefficient of x in the equation.
+ *  @param [in] c The constant in the equation.
+ *  @param [out] solutions The array to store solutions in.
+ *                         Size must be at least 2.
+ * 
+ *  @return A count of solutions (none, one, two or infinity)
+ */ 
 solutions_count_t solve_quadratic(double a, double b, double c, double *solutions)
 {
+	// Check if this equation is linear.
 	if (close_to_zero(a))
 		return solve_linear(b, c, solutions);
 
+	// Discriminant calculation.
 	double d = b * b - 4 * a * c;
 	if (d < 0)
 		return NO_SOLUTION;
@@ -50,6 +84,7 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
 
 solutions_count_t solve(double a, double b, double c, double *solutions)
 {
+	// Sanity checks
 	assert(isfinite(a));
 	assert(isfinite(b));
 	assert(isfinite(c));

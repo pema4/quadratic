@@ -17,12 +17,15 @@ typedef enum solutions_count_t
  *  
  *  This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
  * 
- *  @param[in] a the coefficient of x^2 in the equation.
- *  @param[in] b the coefficient of x in the equation.
- *  @param[in] c the constant coefficient in the equation.
- *  @param[out] solutions the array to store solutions in.
- *              Must be at least size of 2.
+ *  @param [in] a The coefficient of x^2 in the equation.
+ *                Must not be infinite or nan.
+ *  @param [in] b The coefficient of x in the equation.
+ *                Must not be infinite or nan.
+ *  @param [in] c The constant in the equation.
+ *                Must not be infinite or nan. 
+ *  @param [out] solutions The array to store solutions in.
+ *                         Size must be at least 2.
  * 
- *  @return a count of solutions (none, one, two or infinity)
+ *  @return A count of solutions (none, one, two or infinity)
  */ 
 solutions_count_t solve(double a, double b, double c, double *solutions);
