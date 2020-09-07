@@ -18,15 +18,15 @@ This project was developed in Ubuntu.
 
 ### Console application
 
-`make app` compiles solver to file `app` in `bin` subdirectory.
+`make app` compiles solver to file `bin/app`.
 
-You can launch app manually or use `make runApp`, that builds application and launches it for you
+You can launch app manually or using `make runApp`, it builds application and launches it for you
 
 ### Tests
 
-`make app` compiles test runner to file `tests` in `bin` subdirectory.
+`make tests` compiles test runner to file `bin/tests`.
 
-Again, you can launch tests manually or use `make runTests`, that builds and launches tests 
+Again, you can launch tests manually or using `make runTests`, it builds and launches tests for you.
 
 ### Everything
 
