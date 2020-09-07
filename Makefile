@@ -1,26 +1,34 @@
-CC=gcc
-SRC=src
-OUT=out
+CC:=gcc
+CFLAGS:=-Wall
+SRC:=src
+OBJ:=obj
+BIN:=bin
+DOCS:=docs
 
-all: executable tests
+all: executable tests docs
 
 runTests: tests
-	$(OUT)/tests
+	$(BIN)/tests
 
 runExecutable: executable
-	$(OUT)/executable
+	$(BIN)/executable
 
-executable: $(OUT)/main.o $(OUT)/quadratic.o $(OUT)/utils.o
-	$(CC) $(OUT)/main.o $(OUT)/quadratic.o $(OUT)/utils.o -o $(OUT)/executable -lm
+executable: $(OBJ)/main.o $(OBJ)/quadratic.o $(OBJ)/utils.o
+	$(CC) $(CFLAGS) $(OBJ)/main.o $(OBJ)/quadratic.o $(OBJ)/utils.o -o $(BIN)/executable -lm
 
-tests: $(OUT)/tests.o $(OUT)/quadratic.o $(OUT)/utils.o
-	$(CC) $(OUT)/tests.o $(OUT)/quadratic.o $(OUT)/utils.o -o $(OUT)/tests -lm
+tests: $(OBJ)/tests.o $(OBJ)/quadratic.o $(OBJ)/utils.o
+	$(CC) $(CFLAGS) $(OBJ)/tests.o $(OBJ)/quadratic.o $(OBJ)/utils.o -o $(BIN)/tests -lm
 
-$(OUT)/%.o: $(SRC)/%.c makeOut
-	$(CC) -c $< -o $@
+$(OBJ)/%.o: $(SRC)/%.c makeOutputDirs
+	$(CC) $(CFLAGS) -c $< -o $@
 
-makeOut: 
-	mkdir -p $(OUT)
+.PHONY: makeOutputDirs clean
+
+docs: $(SRC)/*
+	doxygen Doxyfile
+
+makeOutputDirs:
+	mkdir -p obj bin
 
 clean:
-	rm -rf $(OUT)
+	rm -rf $(OBJ) $(BIN) $(DOCS)
