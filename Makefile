@@ -7,6 +7,9 @@ all: executable tests
 runTests: tests
 	$(OUT)/tests
 
+runExecutable: executable
+	$(OUT)/executable
+
 executable: $(OUT)/main.o $(OUT)/quadratic.o $(OUT)/utils.o
 	$(CC) $(OUT)/main.o $(OUT)/quadratic.o $(OUT)/utils.o -o $(OUT)/executable -lm
 
