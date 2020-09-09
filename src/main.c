@@ -27,6 +27,10 @@ int main()
             break;
         case INF_SOLUTIONS:
             puts("Equation has infinite number of solutions");
+            break;
+        default:
+            printf("Unexpected number of solutions: %d", count);
+            return -1;
     }
 
     return 0;
