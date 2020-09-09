@@ -16,10 +16,10 @@ tests: $(BIN)/tests
 docs: $(DOCS)/index.html
 
 runTests: $(BIN)/tests
-	$?
+	@$?
 
 runApp: $(BIN)/app
-	$?
+	@$?
 
 clean:
 	@echo "Removing $(OBJ), $(BIN), and $(DOCS) directories"
