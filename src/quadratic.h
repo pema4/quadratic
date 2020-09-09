@@ -1,10 +1,12 @@
-/** @file quadratic.h
- *  @brief The library for solving quadratic equations.
- */ 
+/** 
+ * @file quadratic.h
+ * @brief The library for solving quadratic equations.
+ */
 
-/** @brief Return type of the ::solve.
- *  @sa ::solve
- */ 
+/** 
+ * @brief Return type of the ::solve.
+ * @sa ::solve
+ */
 typedef enum solutions_count_t
 {
     NO_SOLUTION,
@@ -13,19 +15,20 @@ typedef enum solutions_count_t
     INF_SOLUTIONS
 } solutions_count_t;
 
-/** @brief Solves a quadratic equation with given coefficients.
+/** 
+ * @brief Solves a quadratic equation with given coefficients.
  *  
- *  This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
+ * This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
  * 
- *  @param [in] a The coefficient of x^2 in the equation.
- *                Must not be infinite or nan.
- *  @param [in] b The coefficient of x in the equation.
- *                Must not be infinite or nan.
- *  @param [in] c The constant in the equation.
- *                Must not be infinite or nan. 
- *  @param [out] solutions The array to store solutions in.
- *                         Size must be at least 2.
+ * @param [in] a The coefficient of x^2 in the equation.
+ *               Must not be infinite or nan.
+ * @param [in] b The coefficient of x in the equation.
+ *               Must not be infinite or nan.
+ * @param [in] c The constant in the equation.
+ *               Must not be infinite or nan. 
+ * @param [out] solutions The array to store solutions in.
+ *                        Size must be at least 2.
  * 
- *  @return A count of solutions (none, one, two or infinity)
- */ 
+ * @return A count of solutions (none, one, two or infinity)
+ */
 solutions_count_t solve(double a, double b, double c, double *solutions);

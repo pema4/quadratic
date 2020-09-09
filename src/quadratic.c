@@ -5,16 +5,17 @@
 #include "math.h"
 #include "assert.h"
 
-/** @brief Simple equation solver.
+/** 
+ * @brief Simple equation solver.
  * 
  *  Used to solve \f$a = 0\f$ equation.
  * 
- *  @param [in] a The constant in the equation.
- *  @param [out] solutions The array to store solutions in.
- *                         Size must be at least 1.
+ * @param [in] a The constant in the equation.
+ * @param [out] solutions The array to store solutions in.
+ *                        Size must be at least 1.
  * 
- *  @return A count of solutions (none, one or infinity)
- */ 
+ * @return A count of solutions (none, one or infinity)
+ */
 solutions_count_t solve_constant(double a, double *solutions)
 {
     if (!close_to_zero(a))
@@ -24,17 +25,18 @@ solutions_count_t solve_constant(double a, double *solutions)
     return INF_SOLUTIONS;
 }
 
-/** @brief Linear equation solver.
+/** 
+ * @brief Linear equation solver.
  * 
- *  Used to solve \f$ax + b = 0\f$ equation.
+ * Used to solve \f$ax + b = 0\f$ equation.
  * 
- *  @param [in] a The coefficient of x in the equation.
- *  @param [in] b The constant in the equation.
- *  @param [out] solutions The array to store solutions in.
- *                         Size must be at least 1.
+ * @param [in] a The coefficient of x in the equation.
+ * @param [in] b The constant in the equation.
+ * @param [out] solutions The array to store solutions in.
+ *                        Size must be at least 1.
  * 
- *  @return A count of solutions (none, one or infinity)
- */ 
+ * @return A count of solutions (none, one or infinity)
+ */
 solutions_count_t solve_linear(double a, double b, double *solutions)
 {
     // Check if this equation is 'simple' (without any variables).
@@ -45,19 +47,20 @@ solutions_count_t solve_linear(double a, double b, double *solutions)
     return ONE_SOLUTION;
 }
 
-/** @brief Solves a quadratic equation with given coefficients.
+/**
+ * @brief Solves a quadratic equation with given coefficients.
  *  
- *  This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
- *  It is just like ::solve, but without any assertions.
+ * This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
+ * It is just like ::solve, but without any assertions.
  * 
- *  @param [in] a The coefficient of x^2 in the equation.
- *  @param [in] b The coefficient of x in the equation.
- *  @param [in] c The constant in the equation.
- *  @param [out] solutions The array to store solutions in.
- *                         Size must be at least 2.
+ * @param [in] a The coefficient of x^2 in the equation.
+ * @param [in] b The coefficient of x in the equation.
+ * @param [in] c The constant in the equation.
+ * @param [out] solutions The array to store solutions in.
+ *                        Size must be at least 2.
  * 
- *  @return A count of solutions (none, one, two or infinity)
- */ 
+ * @return A count of solutions (none, one, two or infinity)
+ */
 solutions_count_t solve_quadratic(double a, double b, double c, double *solutions)
 {
     // Check if this equation is linear.
