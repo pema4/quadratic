@@ -9,7 +9,7 @@
  */
 typedef enum solutions_count_t
 {
-    NO_SOLUTION,
+    NO_SOLUTION = 0, //todo: values
     ONE_SOLUTION,
     TWO_SOLUTIONS,
     INF_SOLUTIONS

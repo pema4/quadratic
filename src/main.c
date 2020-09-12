@@ -4,7 +4,7 @@
 
 int main()
 {
-    double a, b, c;
+    double a = 0, b = 0, c = 0;
     puts("Enter coefficients a, b, c in the equation ax^2 + bx + c = 0");
     if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
     {
