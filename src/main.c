@@ -2,6 +2,7 @@
 
 #include "stdio.h"
 
+
 int main()
 {
     double a = 0, b = 0, c = 0;
@@ -13,7 +14,7 @@ int main()
     }
 
     double solution[2] = {0};
-    solutions_count_t count = solve(a, b, c, solution);
+    solutions_count_t count = solve_quadratic(a, b, c, solution);
     switch (count)
     {
         case NO_SOLUTION:

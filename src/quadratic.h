@@ -9,10 +9,10 @@
  */
 typedef enum solutions_count_t
 {
-    NO_SOLUTION = 0, //todo: values
-    ONE_SOLUTION,
-    TWO_SOLUTIONS,
-    INF_SOLUTIONS
+    NO_SOLUTION   = 0,
+    ONE_SOLUTION  = 1,
+    TWO_SOLUTIONS = 2,
+    INF_SOLUTIONS = -1
 } solutions_count_t;
 
 /** 
@@ -31,4 +31,4 @@ typedef enum solutions_count_t
  * 
  * @return A count of solutions (none, one, two or infinity)
  */
-solutions_count_t solve(double a, double b, double c, double *solutions);
+solutions_count_t solve_quadratic(double a, double b, double c, double *solutions);
