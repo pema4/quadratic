@@ -6,6 +6,8 @@ project(
     LANGUAGES C
 )
 
+set(CMAKE_C_FLAGS "-Wall -Wextra -Wfloat-equal")
+
 add_subdirectory(src)
 
 find_package(Doxygen)
