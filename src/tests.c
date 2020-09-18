@@ -23,11 +23,11 @@ TEST(linear)
 
     count = solve_quadratic(0, 1, 0, sol);
     ASSERT(ONE_SOLUTION == count);
-    ASSERT(0 == sol[0]);
+    ASSERT(close_to_zero(sol[0]));
 
     count = solve_quadratic(0, 1, 1, sol);
     ASSERT(ONE_SOLUTION == count);
-    ASSERT(-1 == sol[0]);
+    ASSERT(close_to(-1, sol[0]));
 ENDTEST
 
 // Test equations like x^2 + 4x + 3 = 0.
