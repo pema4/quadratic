@@ -1,5 +1,5 @@
 CC:=gcc
-CFLAGS:=-Wall
+CFLAGS:=-Wall -Wextra -Wfloat-equal
 SRC:=src
 OBJ:=obj
 BIN:=bin
