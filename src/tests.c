@@ -9,11 +9,11 @@ TEST(simple_equality)
     double sol[2] = {0};
     solutions_count_t count = NO_SOLUTION;
 
-    count = solve_quadratic(0, 0, 1, sol);
-    ASSERT(NO_SOLUTION == count);
-
     count = solve_quadratic(0, 0, 0, sol);
     ASSERT(INF_SOLUTIONS == count);
+
+    count = solve_quadratic(0, 0, 1, sol);
+    ASSERT(NO_SOLUTION == count);
 ENDTEST
 
 // Test equations like x + 1 = 0 and x = 1.
@@ -47,6 +47,14 @@ TEST(quadratic)
 
     count = solve_quadratic(1, -4, 5, sol);
     ASSERT(NO_SOLUTION == count);
+ENDTEST
+
+TEST(should_fail)
+    double sol[2] = {0};
+    solutions_count_t count = NO_SOLUTION;
+
+    count = solve_quadratic(1e200, 1e200, 1e200, sol);
+    ASSERT(SOLVE_FAILED == count);
 ENDTEST
 
 int main()

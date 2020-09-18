@@ -23,7 +23,9 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
 
     // Discriminant calculation.
     double d = b * b - 4 * a * c;
-    if (close_to_zero(d))
+    if (!isfinite(d))
+        return SOLVE_FAILED;
+    else if (close_to_zero(d))
     {
         solutions[0] = -b / (2 * a);
         return ONE_SOLUTION;

@@ -15,13 +15,19 @@ typedef enum solutions_count_t
     NO_SOLUTION   = 0,
     ONE_SOLUTION  = 1,
     TWO_SOLUTIONS = 2,
-    INF_SOLUTIONS = -1
+    INF_SOLUTIONS = -1,
+    SOLVE_FAILED  = -2,
 } solutions_count_t;
 
 /** 
  * @brief Solves a quadratic equation with given coefficients.
  *  
- * This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
+ * This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$.
+ * 
+ * Arguments of this function must be finite.
+ * 
+ * ::SOLVE_FAILED is returned when needed computations
+ * cannot be performed (for example, too large discriminant).
  * 
  * @param [in] a The coefficient of x^2 in the equation.
  *               Must not be infinite or nan.
@@ -32,7 +38,7 @@ typedef enum solutions_count_t
  * @param [out] solutions The array to store solutions in.
  *                        Size must be at least 2.
  * 
- * @return A count of solutions (none, one, two or infinity)
+ * @return A number of solutions (none, one, two or infinity) or ::SOLVE_FAILED.
  */
 solutions_count_t solve_quadratic(double a, double b, double c, double *solutions);
 

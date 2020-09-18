@@ -35,6 +35,9 @@ int main()
     case INF_SOLUTIONS:
         puts("Equation has infinite number of solutions");
         break;
+    case SOLVE_FAILED:
+        puts("Computation failed (probably because of floating point overflow)");
+        break;
     default:
         printf("Unexpected number of solutions: %d", count);
         return -1;
