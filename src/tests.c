@@ -62,5 +62,6 @@ int main()
     simple_equality();
     linear();
     quadratic();
+    should_fail();
     return 0;
 }
