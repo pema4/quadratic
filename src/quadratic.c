@@ -5,9 +5,9 @@
 #include "math.h"
 #include "assert.h"
 
-solutions_count_t solve_constant(double a, double *solutions);
+static solutions_count_t solve_constant(double a, double *solutions);
 
-solutions_count_t solve_linear(double a, double b, double *solutions);
+static solutions_count_t solve_linear(double a, double b, double *solutions);
 
 /**
  * @brief Solves a quadratic equation with given coefficients.
@@ -67,7 +67,7 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
  * 
  * @return A count of solutions (none, one or infinity)
  */
-solutions_count_t solve_linear(double a, double b, double *solutions)
+static solutions_count_t solve_linear(double a, double b, double *solutions)
 {
     // Check if this equation is 'simple' (without any variables).
     if (close_to_zero(a))
@@ -88,7 +88,7 @@ solutions_count_t solve_linear(double a, double b, double *solutions)
  * 
  * @return A count of solutions (none, one or infinity)
  */
-solutions_count_t solve_constant(double a, double *solutions)
+static solutions_count_t solve_constant(double a, double *solutions)
 {
     if (!close_to_zero(a))
         return NO_SOLUTION;
