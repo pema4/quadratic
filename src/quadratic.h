@@ -7,8 +7,8 @@
 #define QUADRATIC_H
 
 /** 
- * @brief Return type of the ::solve.
- * @sa ::solve
+ * @brief Return type of the ::solve_quadratic.
+ * @sa ::solve_quadratic
  */
 typedef enum solutions_count_t
 {
