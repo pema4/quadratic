@@ -5,29 +5,29 @@ Written as part of C/C++ programming course at ISP RAS.
 ## Prerequisites
 
 * cpp
-* doxygen
-* make
+* cmake
+* doxygen (optional)
 
-This project was developed in Ubuntu.
+This project was developed in WSL Ubuntu.
 
 ## How to build
 
+First of all, execute `cmake -B build` from the project root.
+
+Then `cmake --build build` command will compile application and tests.
+
 ### Documentation
 
-`make docs` compiles HTML documentation with Doxygen and places it inside `docs` subdirectory.
+If Doxygen is found, `cmake --build build -t docs` compiles HTML documentation.
 
 ### Console application
 
-`make app` compiles solver to file `bin/app`.
+`cmake --build build -t app` compiles main application and places it in `build/src` directory.
 
-You can launch app manually or using `make runApp`, it builds application and launches it for you
+You can launch app manually with `build/src/main`.
 
 ### Tests
 
-`make tests` compiles test runner to file `bin/tests`.
+`cmake --build build -t app` compiles test runner and places it in `build/src` directory.
 
-Again, you can launch tests manually or using `make runTests`, it builds and launches tests for you.
-
-### Everything
-
-Just `make` will compile application, tests and documentation.
+You can launch tests manually with `build/src/tests`.

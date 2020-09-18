@@ -1,4 +1,2 @@
 .vscode
-bin
-obj
-docs
+build
