@@ -3,6 +3,9 @@
  * @brief Not so smart testing library powered by macros.
  */
 
+#ifndef TESTLIB_H
+#define TESTLIB_H
+
 #include "utils.h"
 
 /**
@@ -56,3 +59,5 @@
             fprintf(stderr, "FAILED: %s\n", TEST_NAME); \
             return;                                     \
     }
+
+#endif // TESTLIB_H

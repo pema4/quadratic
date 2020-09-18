@@ -3,6 +3,9 @@
  * @brief The library for solving quadratic equations.
  */
 
+#ifndef QUADRATIC_H
+#define QUADRATIC_H
+
 /** 
  * @brief Return type of the ::solve.
  * @sa ::solve
@@ -32,3 +35,5 @@ typedef enum solutions_count_t
  * @return A count of solutions (none, one, two or infinity)
  */
 solutions_count_t solve_quadratic(double a, double b, double c, double *solutions);
+
+#endif // QUADRATIC_H

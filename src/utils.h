@@ -3,6 +3,9 @@
  * @brief Useful utility functions.
  */
 
+#ifndef UTILS_H
+#define UTILS_H
+
 /**
  * @brief \f$\epsilon\f$ used in comparisons.
  * 
@@ -35,3 +38,5 @@ int close_to(double a, double b);
  * @return Non-zero value if the number is close to zero, otherwise 0.
  */
 int close_to_zero(double a);
+
+#endif // UTILS_H
