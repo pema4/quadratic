@@ -9,20 +9,6 @@ static solutions_count_t solve_constant(double a, double *solutions);
 
 static solutions_count_t solve_linear(double a, double b, double *solutions);
 
-/**
- * @brief Solves a quadratic equation with given coefficients.
- *  
- * This fuctnions solves given quadratic equation \f$ax^2 + bx + c = 0\f$
- * It is just like ::solve, but without any assertions.
- * 
- * @param [in] a The coefficient of x^2 in the equation.
- * @param [in] b The coefficient of x in the equation.
- * @param [in] c The constant in the equation.
- * @param [out] solutions The array to store solutions in.
- *                        Size must be at least 2.
- * 
- * @return A count of solutions (none, one, two or infinity)
- */
 solutions_count_t solve_quadratic(double a, double b, double c, double *solutions)
 {
     // Sanity checks
@@ -69,6 +55,10 @@ solutions_count_t solve_quadratic(double a, double b, double c, double *solution
  */
 static solutions_count_t solve_linear(double a, double b, double *solutions)
 {
+    assert(isfinite(a));
+    assert(isfinite(b));
+    assert(NULL != solutions);
+
     // Check if this equation is 'simple' (without any variables).
     if (close_to_zero(a))
         return solve_constant(b, solutions);
@@ -90,9 +80,12 @@ static solutions_count_t solve_linear(double a, double b, double *solutions)
  */
 static solutions_count_t solve_constant(double a, double *solutions)
 {
+    assert(isfinite(a));
+    assert(NULL != solutions);
+
     if (!close_to_zero(a))
         return NO_SOLUTION;
 
-    // solutions[0] = -a;
+    solutions[0] = -a;
     return INF_SOLUTIONS;
 }
